@@ -13,6 +13,8 @@ do
 	read SUBCATEGORY
 	echo "Type in the price of this product"
 	read PRICE
+	echo "Type in the price of this discount"
+	read DISCOUNT
 	if [ $I -lt 10 ]
 	then
 		BARCODE="ITEM00000${I}"
@@ -28,7 +30,7 @@ do
 	else
 		BARCODE='ITEM0${I}'
 	fi
-	echo "{ barcode: '${BARCODE}', name: '${NAME}', unit: '${UNIT}', category: '${CATEGORY}', subCategory: '${SUBCATEGORY}', price: '${PRICE}' }" >> products.json
-	echo "{ barcode: '${BARCODE}', name: '${NAME}', unit: '${UNIT}', category: '${CATEGORY}', subCategory: '${SUBCATEGORY}', price: '${PRICE}' }"
+	echo "{ \"barcode\": \"${BARCODE}\", \"name\": \"${NAME}\", \"unit\": \"${UNIT}\", \"category\": \"${CATEGORY}\", \"subCategory\": \"${SUBCATEGORY}\", \"price\": \"${PRICE}\",\"discount\":\"${DISCOUNT}\" }" >> products.json
+	echo "{ barcode: '${BARCODE}', name: '${NAME}', unit: '${UNIT}', category: '${CATEGORY}', subCategory: '${SUBCATEGORY}', price: '${PRICE}',discount: '${discount}' }"
 	I=`expr $I + 1`
 done
