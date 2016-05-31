@@ -1,5 +1,5 @@
 # discount
-for ThoughtWorks
+for ThoughtWorks without test.
 
 ###This project has no test module.
 
@@ -10,7 +10,7 @@ for ThoughtWorks
     This is to automatically create products.json.
 
 ###input.js
-    To normalizing the input of note.
+    To normalizing the input of note. Add the ITEMXXXXXX what you want to buy to the array input.Now there are some default settings.
 
 ###read_file.js
     Read products.json.
