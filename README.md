@@ -17,3 +17,5 @@ for ThoughtWorks without test.
 
 ###main.js
     Main entry;
+
+github repo:https://github.com/bsdfzzzy/discount.git

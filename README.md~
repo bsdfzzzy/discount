@@ -10,10 +10,12 @@ for ThoughtWorks without test.
     This is to automatically create products.json.
 
 ###input.js
-    To normalizing the input of note. Add the ITEMXXXXXX what you want to buy to the array input.
+    To normalizing the input of note. Add the ITEMXXXXXX what you want to buy to the array input.Now there are some default settings.
 
 ###read_file.js
     Read products.json.
 
 ###main.js
     Main entry;
+
+github repo:https://github.com/bsdfzzzy/
