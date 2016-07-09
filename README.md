@@ -1,5 +1,4 @@
 # discount
-for ThoughtWorks without test.
 
 ###This project has no test module.
 
