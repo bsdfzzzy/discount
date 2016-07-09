@@ -16,10 +16,8 @@
     "url": "https://github.com/bsdfzzzy/discount/issues"
   },
   "homepage": "https://github.com/bsdfzzzy/discount#readme",
-  "dependencies": {
-    "jasmine-core": "^2.4.1"
-  },
   "devDependencies": {
+    "jasmine-core": "^2.4.1",
     "karma": "^1.1.1",
     "karma-chrome-launcher": "^1.0.1",
     "karma-firefox-launcher": "^1.0.0",
