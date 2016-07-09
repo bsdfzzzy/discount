@@ -4,7 +4,7 @@
   "description": "###This project has no test module.",
   "main": "main.js",
   "scripts": {
-    "test": "./node_modules/.bin/jasmine-node spec"
+    "test": "./node_modules/.bin/jasmine"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/bsdfzzzy/discount#readme",
   "dependencies": {
+    "jasmine": "^2.4.1",
     "jasmine-node": "^1.14.5"
   }
 }
