@@ -4,7 +4,7 @@
   "description": "###This project has no test module.",
   "main": "main.js",
   "scripts": {
-    "test": "./node_modules/.bin/jasmine"
+    "test": "./node_modules/.bin/karma start --singleRun"
   },
   "repository": {
     "type": "git",
