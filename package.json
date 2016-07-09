@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/bsdfzzzy/discount#readme",
   "devDependencies": {
+    "babel-core": "^6.10.4",
     "chai": "^3.5.0",
     "isparta": "^4.0.0",
     "istanbul": "^0.4.4",
