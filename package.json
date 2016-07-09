@@ -1,0 +1,19 @@
+{
+  "name": "discount",
+  "version": "1.0.0",
+  "description": "###This project has no test module.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsdfzzzy/discount.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bsdfzzzy/discount/issues"
+  },
+  "homepage": "https://github.com/bsdfzzzy/discount#readme"
+}
