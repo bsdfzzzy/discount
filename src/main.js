@@ -1,4 +1,6 @@
-const product = require('./read_file'),
+'use strict'
+
+/*const product = require('./read_file'),
     count = require('./input'),
     readline = require('readline');
 
@@ -6,8 +8,8 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
-var create_small_ticket_to_console = () => {
+*/
+/*var create_small_ticket_to_console = () => {
     var sum_price = 0;
     var sum_price_after_discount = 0;
     var discount_products = [];
@@ -82,4 +84,21 @@ var ask_to_make_discount = () => {
     });    
 }
 
-ask_to_make_discount();
+ask_to_make_discount();*/
+
+class Calculate {
+
+    constructor() {}
+
+    calculate(a, ...prices) {
+        let sum = a;
+        for (let price of prices) {
+            if(price >= 0.0) {
+                sum += price;
+            }
+        }
+        return sum;
+    }
+}
+
+export {Calculate};
