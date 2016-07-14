@@ -90,7 +90,7 @@ class Calculate {
 
     constructor() {}
 
-    calculate(a, ...prices) {
+    calculate_without_dis(a, ...prices) {
         let sum = a;
         for (let price of prices) {
             if(price >= 0.0) {
@@ -100,6 +100,15 @@ class Calculate {
         return sum;
     }
 
+    calculate_with_dis(dis, ...prices) {
+        let sum = 0;
+        for (let price of prices) {
+            if(price >= 0.0) {
+                sum += price * dis;
+            }
+        }
+        return sum;
+    }
 
 }
 
