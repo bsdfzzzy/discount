@@ -126,7 +126,7 @@ class Shop {
 
 class Calculate extends Shop{
 
-    parse(barcode) {
+    parseBarcode(barcode) {
         let parse_have_ = barcode.match(/(ITEM[0-9]+)-(\d+)/);
         let parse_not_have_ = barcode.match(/ITEM[0-9]+/);
         let parse_barcode = barcode, num = 1;
@@ -141,6 +141,38 @@ class Calculate extends Shop{
             num = null;
         }
         return [parse_barcode, num];
+    }
+
+    array_operate(input_array) {
+        let new_array = [];
+        for (let barcode of input_array) {
+            let [parse_barcode, num] = this.parseBarcode(barcode);
+            let new_array_have_this = 0;
+            for (let new_array_child of new_array) {
+                if (new_array_child.barcode === parse_barcode) {
+                    new_array_child.num += num;
+                    new_array_have_this = 1;
+                }
+            }
+            if (!new_array_have_this) {
+                new_array.push({barcode: parse_barcode, num: num});
+            }
+        }
+        return new_array;
+    }
+
+    calculate(barcodeArray) {
+        let total = 0;
+        let save = 0;
+        for ( let barcode of barcodeArray ) {
+            for ( let data of input_mock_after_discount ) {
+                if ( data.barcode === barcode.barcode ) {
+                    total += barcode.num * data.price * data.discount;
+                    save += barcode.num * data.price - barcode.num * data.price * data.discount;
+                }
+            }
+        }
+        return {totalPrice: total.toFixed(2), savePrice: save.toFixed(2)};
     }
 
     calculate_without_dis(...barcode) {
@@ -181,23 +213,6 @@ class Calculate extends Shop{
         return sum;
     }
 
-    array_operate(input_array) {
-        let new_array = [];
-        for (let barcode of input_array) {
-            let [parse_barcode, num] = this.parse(barcode);
-            let new_array_have_this = 0;
-            for (let new_array_child of new_array) {
-                if (new_array_child.barcode === parse_barcode) {
-                    new_array_child.num += num;
-                    new_array_have_this = 1;
-                }
-            }
-            if (!new_array_have_this) {
-                new_array.push({barcode: parse_barcode, num: num});
-            }
-        }
-        return new_array;
-    }
 
     int_to_Chinese(discount_num) {
         let dis = discount_num.match(/\.(\d+)/);
@@ -213,7 +228,7 @@ class Calculate extends Shop{
 
     print(inputs) {
         console.log("***<没钱赚商店>购物清单***");
-        let new_array = [];
+        //let new_array = [];
         inputs = this.array_operate(inputs);
         for(let input of inputs) {
             for(let product of input_mock_after_discount) {
@@ -221,7 +236,7 @@ class Calculate extends Shop{
                     console.log("名称：" + product.name + "，数量：" + input.num + product.unit + "，单价：" + product.price + "(元)，小计：" + (input.num * product.price * product.discount).toFixed(2) + "(元)" + "，优惠" + (product.price * (1 - product.discount) * input.num).toFixed(2) + "（元）");
                 }
             }
-            new_array.push(input.barcode + "-" + input.num);
+            //new_array.push(input.barcode + "-" + input.num);
         }
         console.log("----------------------\n单品打折商品：");
         for(let input of inputs) {
@@ -231,10 +246,11 @@ class Calculate extends Shop{
                 }
             }
         }
-        let [...items] = new_array;
+        //let [...items] = new_array;
+        let priceAfterCal = this.calculate(inputs)
         console.log("----------------------");
-        console.log("总计：" + this.calculate_with_discount(...items) + "(元)");
-        console.log("节省：" + ((this.calculate_without_dis(...items) - this.calculate_with_discount(...items))).toFixed(2) + "(元)");
+        console.log("总计：" + priceAfterCal.totalPrice + "(元)");
+        console.log("节省：" + priceAfterCal.savePrice + "(元)");
         console.log("**********************");
     }
 
